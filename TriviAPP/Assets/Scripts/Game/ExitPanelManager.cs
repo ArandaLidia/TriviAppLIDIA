@@ -1,19 +1,19 @@
-// Assets/Scripts/Game/ExitPanelManager.cs
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ExitPanelManager : MonoBehaviour
 {
-    [Header("Panel de confirmación")]
+    [Header("Panel de confirmaciÃ³n")]
     [Tooltip("Panel que aparece al pulsar Salir")]
     public GameObject panelConfirmExit;
+
     [Tooltip("Efecto de desenfoque de fondo (opcional)")]
     public GameObject panelBlurEffect;
 
     [Header("Botones")]
-    public Button btnExit;   // Botón que abre el panel
-    public Button btnYes;    // Botón de "Sí, salir"
-    public Button btnNo;     // Botón de "No, cancelar"
+    public Button btnExit;   // BotÃ³n que abre el panel
+    public Button btnYes;    // BotÃ³n de "SÃ­, salir"
+    public Button btnNo;     // BotÃ³n de "No, cancelar"
 
     void Start()
     {
@@ -21,7 +21,6 @@ public class ExitPanelManager : MonoBehaviour
         if (panelBlurEffect != null)
             panelBlurEffect.SetActive(false);
 
-        // Asignar listeners a los botones
         if (btnExit != null)
             btnExit.onClick.AddListener(ShowExitPanel);
 
@@ -33,7 +32,7 @@ public class ExitPanelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Muestra el panel de confirmación (y el desenfoque si existe).
+    /// Muestra el panel de confirmaciÃ³n.
     /// </summary>
     void ShowExitPanel()
     {
@@ -44,7 +43,7 @@ public class ExitPanelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Oculta el panel de confirmación (y el desenfoque si existe).
+    /// Oculta el panel de confirmaciÃ³n.
     /// </summary>
     void HideExitPanel()
     {
@@ -55,19 +54,27 @@ public class ExitPanelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Confirmación de salir: busca el PhotonPrueba y ejecuta la salida.
+    /// Confirma salida:
+    /// - Si hay PhotonPrueba => LeaveRoom
+    /// - Si no => cierra la app normal.
     /// </summary>
     void ConfirmExit()
     {
-        // Requiere Unity 2023.1+ para FindFirstObjectByType
         PhotonPrueba photonPrueba = FindFirstObjectByType<PhotonPrueba>();
+
         if (photonPrueba != null)
         {
+            Debug.Log("Encontrado PhotonPrueba â†’ saliendo de la Room...");
             photonPrueba.LeaveRoomAndReturnToMenu();
         }
         else
         {
-            Debug.LogWarning("No se encontró ningún PhotonPrueba en la escena.");
+            Debug.Log(" No hay PhotonPrueba â†’ cerrando la aplicaciÃ³n normal...");
+            Application.Quit();
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
     }
 }

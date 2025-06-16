@@ -14,7 +14,7 @@ public class MostrarAvatarFirebase : MonoBehaviour
     private void Awake()
     {
         auth = FirebaseAuth.DefaultInstance;
-        dbRef = FirebaseDatabase.GetInstance("https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app/").RootReference;
+        dbRef = FirebaseDatabase.GetInstance("https://triviapplidia-default-rtdb.firebaseio.com").RootReference;
     }
 
     private void OnEnable()
@@ -25,7 +25,7 @@ public class MostrarAvatarFirebase : MonoBehaviour
     public void RecargarAvatar()
     {
         if (auth == null) auth = FirebaseAuth.DefaultInstance;
-        if (dbRef == null) dbRef = FirebaseDatabase.GetInstance("https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app/").RootReference;
+        if (dbRef == null) dbRef = FirebaseDatabase.GetInstance("https://triviapplidia-default-rtdb.firebaseio.com/").RootReference;
 
         if (auth.CurrentUser != null)
         {

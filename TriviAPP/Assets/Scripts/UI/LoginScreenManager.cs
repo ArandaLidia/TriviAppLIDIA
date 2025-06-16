@@ -12,11 +12,17 @@ public class LoginScreenManager : MonoBehaviour
 
     private void Start()
     {
-        // Starts showing the login screen and hiding the registration screen
-        loginPanel.SetActive(true);
-        registerPanel.SetActive(false);
-        forgotPasswordPanel.SetActive(false);
-
+        if (AuthScreenSettings.OpenRegisterPanel)
+        {
+           
+            ShowRegisterPanel();
+            AuthScreenSettings.OpenRegisterPanel = false; 
+        }
+        else
+        {
+            
+            ShowLoginPanel();
+        }
     }
 
     public void ShowLoginPanel()
@@ -36,7 +42,7 @@ public class LoginScreenManager : MonoBehaviour
         registerPanel.SetActive(true);
         forgotPasswordPanel.SetActive(false);
     }
-        // Screen replacement method
+    // Screen replacement method
     private void PanelSwitch(bool showLogin)
     {
         loginPanel.SetActive(showLogin);
@@ -56,24 +62,26 @@ public class LoginScreenManager : MonoBehaviour
         {
             // If you are in the registration or password panel, go back to login
             ShowLoginPanel();
-            Debug.Log("🔙 Volver a LoginPanel");
+            Debug.Log(" Volver a LoginPanel");
         }
         else if (loginPanel.activeSelf)
         {
             // If you are in the login panel, switch to LoginScene
             SceneManager.LoadScene(sceneToLoadFromLogin);
-            Debug.Log("🔄 Cambiar a LoginScene");
+            Debug.Log(" Cambiar a LoginScene");
         }
     }
 
     public void GoToRegisterPanel()
     {
-        Debug.Log("🔄 Salir al escenario " + sceneToLoadForRegister + " en el panel de registro.");
+        Debug.Log(" Cargando EnterScene con panel Registro activo.");
+        AuthScreenSettings.OpenRegisterPanel = true;
         SceneManager.LoadScene(sceneToLoadForRegister);
     }
+
     public void GoToMainMenuScene() //test
     {
-        Debug.Log("🟢 Cambiando para el Menu Principal");
+        Debug.Log(" Cambiando para el Menu Principal");
         SceneManager.LoadScene(sceneToLoadForMainMenu);
     }
 }

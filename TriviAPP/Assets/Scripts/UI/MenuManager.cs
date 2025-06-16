@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     {
         if (mainMenuPanel == null)
         {
-            Debug.LogError("❌ mainMenuPanel está NULL en MenuManager", this);
+            Debug.LogError(" mainMenuPanel está NULL en MenuManager", this);
         }
         else
         {
@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void ShowMiniMenu()
     {
-        Debug.Log("🔄 Mostrar miniMenuPanel");
+        Debug.Log(" Mostrar miniMenuPanel");
         // hacemos que esté encima en la jerarquía (opcional)
         miniMenuPanel.transform.SetAsLastSibling();
 
@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void ShowCategoriesPanel()
     {
-        Debug.Log("🔢 Mostrar categoryPanel");
+        Debug.Log(" Mostrar categoryPanel");
         categoryPanel.transform.SetAsLastSibling();
 
         categoryPanel.SetActive(true);
@@ -68,19 +68,19 @@ public class MenuManager : MonoBehaviour
 
     public void GoToEditProfile()
     {
-        Debug.Log("⚙️ Ir a EditProfile");
+        Debug.Log(" Ir a EditProfile");
         SceneManager.LoadScene("EditProfile");
     }
 
     public void GoToFriendsScene()
     {
-        Debug.Log("➡️ Ir a FriendsScene");
+        Debug.Log(" Ir a FriendsScene");
         SceneManager.LoadScene("FriendsScene");
     }
 
     public void GoToGlobalRanking()
     {
-        Debug.Log("📊 Ir a GlobalRanking");
+        Debug.Log(" Ir a GlobalRanking");
         SceneManager.LoadScene("GlobalRanking");
     }
 
@@ -104,7 +104,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void OnClickCategory(string categoryKey)
     {
-        Debug.Log($"🎯 Categoría seleccionada: {categoryKey}");
+        Debug.Log($" Categoría seleccionada: {categoryKey}");
         GameSettings.trainingMode = false;
         GameSettings.categoryMode = true;
         GameSettings.categoryKey = categoryKey;
@@ -119,7 +119,7 @@ public class MenuManager : MonoBehaviour
     }
     public void ShowExitPanel()
     {
-        Debug.Log("🚪 Mostrar exitPanel");
+        Debug.Log(" Mostrar exitPanel");
         exitPanel.transform.SetAsLastSibling();
         exitPanel.SetActive(true);
     }
@@ -129,7 +129,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void HideExitPanel()
     {
-        Debug.Log("❌ Cancelar salida");
+        Debug.Log(" Cancelar salida");
         exitPanel.SetActive(false);
     }
 
@@ -138,7 +138,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
-        Debug.Log("⏹ Cerrando el juego...");
+        Debug.Log(" Cerrando el juego...");
         Application.Quit();
 
 #if UNITY_EDITOR

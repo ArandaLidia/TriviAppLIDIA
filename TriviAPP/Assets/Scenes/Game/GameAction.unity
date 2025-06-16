@@ -2452,7 +2452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45158ca5d4a0e4949a0c7c4592305dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseUrl: https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app
+  databaseUrl: https://triviapplidia-default-rtdb.firebaseio.com
   questionsNode: trivia_questions_es
 --- !u!4 &900335661
 Transform:

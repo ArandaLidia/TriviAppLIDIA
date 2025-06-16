@@ -24,7 +24,7 @@ public class AvatarController : MonoBehaviour
     private void Start()
     {
         auth = FirebaseAuth.DefaultInstance;
-        dbRef = FirebaseDatabase.GetInstance("https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app/").RootReference;
+        dbRef = FirebaseDatabase.GetInstance("https://triviapplidia-default-rtdb.firebaseio.com").RootReference;
 
         // Crear diccionario (nombre -> sprite)
         for (int i = 0; i < listaDeAvatares.Count; i++)

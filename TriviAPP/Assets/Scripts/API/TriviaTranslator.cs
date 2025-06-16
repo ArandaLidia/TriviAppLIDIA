@@ -11,7 +11,7 @@ public class TriviaTranslator : MonoBehaviour
 {
     [Header("Configuración Firebase")]
     [Tooltip("La URL completa de Realtime DB, sin '/' final")]
-    [SerializeField] private string databaseUrl = "https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app";
+    [SerializeField] private string databaseUrl = "https://triviapplidia-default-rtdb.firebaseio.com";
     [Tooltip("El nombre exacto del nodo que contiene preguntas")]
     [SerializeField] private string questionsNode = "trivia_questions_es";
 

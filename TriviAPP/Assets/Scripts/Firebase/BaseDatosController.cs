@@ -22,7 +22,7 @@ public class BaseDatosController : MonoBehaviour
         Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         string userId = auth.CurrentUser?.UserId;
 
-        referenciaBaseDeDatos = FirebaseDatabase.GetInstance("https://triviapp-8f3d8-default-rtdb.europe-west1.firebasedatabase.app/").RootReference;
+        referenciaBaseDeDatos = FirebaseDatabase.GetInstance("https://triviapplidia-default-rtdb.firebaseio.com").RootReference;
 
         if (!string.IsNullOrEmpty(userId))
         {
@@ -83,7 +83,7 @@ public class BaseDatosController : MonoBehaviour
             aliasID,
             GenerarCodigoUnico(6),
             "email",
-            avatarSeleccionado 
+            avatarSeleccionado
         );
 
         string json = JsonUtility.ToJson(nuevoUsuario);
